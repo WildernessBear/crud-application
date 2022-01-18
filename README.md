@@ -1,4 +1,4 @@
-# crud-app-2
+# crud-application
 
 ### Front -- ReactJS
 
