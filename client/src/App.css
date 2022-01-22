@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .form {
@@ -14,4 +16,19 @@
   height: 60px;
   margin: 10px;
   font-size: 25px;
+}
+
+.card {
+  width: 500px;
+  height: 200px;
+  border: 2px solid rgb(219, 219, 255);
+  border-radius: 15px;
+  margin: 10px;
+  background-color: rgba(160, 195, 240, 0.363);
+}
+
+.updateInput {
+  width: 100px;
+  height: 20px;
+  margin-bottom: 10px;
 }
