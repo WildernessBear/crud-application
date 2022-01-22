@@ -26,6 +26,7 @@ mkdir server
 cd client
 npx create-react-app .
 npm start
+npm i axios
 ```
 
 Delete files in src folder:
@@ -65,6 +66,7 @@ ReactDOM.render(
 ```diff
 - import logo from './logo.svg';
 import './App.css';
++ import React from 'react';
 
 function App() {
   return (
@@ -90,7 +92,45 @@ function App() {
 export default App;
 ```
 
-This produces a blank webpage.
+This produces a blank webpage. Then add:
+
+```diff
+    <div className="App">
++      <h1>CRUD APPLICATION</h1>
++
++      <div className="form">
++        <label>Movie Name:</label>
++        <input type="text" name="movieReview" />
++        <label>Review:</label>
++        <input type="text" name="review" />
++
++        <button>Submit</button>
++      </div>
+    </div>
+
+```
+
+<b>Update App.css</b>
+
+```diff
+.App {
+  text-align: center;
+}
+
++.form {
++  display: flex;
++  flex-direction: column;
++  align-items: center;
++  justify-content: center;
++}
++
++.form input {
++  width: 300px;
++  height: 60px;
++  margin: 10px;
++  font-size: 25px;
++}
+```
 
 ## Set up Server
 
@@ -99,7 +139,7 @@ cd server
 npm init
 // press enter to all prompts
 // create new file index.js
-npm install express body-parser MySQL nodemon
+npm install express body-parser MySQL nodemon cors
 ```
 
 <b>Create server\index.js</b>
@@ -135,7 +175,7 @@ npm run devStart
 
 Everytime a file is edited and saved, server will refresh automatically
 
-## Configure MySQL database
+## Configure and Test MySQL database
 
 ### <b>Known issues:</b>
 
@@ -203,19 +243,3 @@ app.listen(3001, () => {
 - Tab back to MySQL Workbench
 - Click lightening bolt icon
   - Should have inserted <i>inception, good movie</i> into first row
-
-\
-<b>Update server\index.js after connection test passes</b>
-
-```diff
-app.get('/', (req, res) => {
-
--     const sqlInsert = "INSERT INTO movie_reviews (movieName, movieReview) VALUES ('inception', 'good movie');"
--     db.query(sqlInsert, (err, result) => {
--          // add console.log only if not working
--          // should throw NULL then work+
--          console.log(err);
--         res.send("hello world");
--    });
-});
-```
