@@ -4,8 +4,15 @@ import Axios from 'axios';
 
 function App() {
 
-  const [movieName, setMovieName] = useState('')
-  const [review, setReview] = useState('')
+  const [movieName, setMovieName] = useState('');
+  const [review, setReview] = useState('');
+  const [movieReviewList, setMovieList] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setMovieList(response.data);
+    });
+  });
 
   // called everytime sumbit button pressed
   const submitReview = () => { 
@@ -41,6 +48,10 @@ function App() {
         />
 
         <button onClick={submitReview}>Submit</button>
+
+        {movieReviewList.map((val) => { // display reviews to site
+          return <h2> <u>Movie</u>:  {val.movieName} | <u>Review</u>: {val.movieReview} </h2>
+        })}
       </div>
     </div>
   );
