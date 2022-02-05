@@ -7,6 +7,21 @@
 - Back
   - NodeJS
   - MySQL
+- Dependencies
+  - MySQL
+  - axios
+  - express
+  - body-parser
+  - nodemon
+  - cors
+
+# How to run
+
+cd client\
+npm start\
+cd server\
+npm run devStart\
+make sure MySQL server is running
 
 # How to set up files
 
