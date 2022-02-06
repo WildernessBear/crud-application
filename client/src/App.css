@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #2d303b;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
@@ -15,20 +16,76 @@
   width: 300px;
   height: 60px;
   margin: 10px;
-  font-size: 25px;
+  font-size: 15px;
 }
-
 .card {
   width: 500px;
   height: 200px;
-  border: 2px solid rgb(219, 219, 255);
-  border-radius: 15px;
+  border: 1.5px solid #89b0ae;
+  border-radius: 23px;
   margin: 10px;
-  background-color: rgba(160, 195, 240, 0.363);
+  background-color: #d4ede7;
 }
 
 .updateInput {
   width: 100px;
   height: 20px;
   margin-bottom: 10px;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  width: 80px;
+  height: 30px;
+  background: transparent;
+  color: white;
+  position: relative;
+  font-size: 0.9em;
+  margin: 17px 0;
+  border-radius: 30px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: -200%;
+  left: -20%;
+  border-radius: 50%;
+  transition: all 500ms linear;
+  transform: scale(0);
+  transform-origin: left;
+  z-index: -1;
+}
+
+.btn:hover:before {
+  transform: scale(1);
+}
+
+.submit-btn {
+  background: #62697f;
+}
+
+.submit-btn::before {
+  background: #979daf;
+}
+
+.delete-btn {
+  background: #a83845;
+}
+
+.delete-btn::before {
+  background: #d6858f;
+}
+
+.update-btn {
+  background: #f06449;
+}
+
+.update-btn::before {
+  background: #f6b0a2;
 }

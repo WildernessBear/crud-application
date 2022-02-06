@@ -38,13 +38,15 @@ function App() {
       movieName: movie,
       movieReview: newReview,
     });
+    //this.setState({ movieName: movie, movieReview: newReview });
+    
     // clear string so empty next time
     setNewReview('');
   };
 
   return (
     <div className='App'>
-    
+
       <h1>Movie Reviews</h1>
 
       <div className='form'>
@@ -56,6 +58,7 @@ function App() {
             setMovieName(e.target.value)
           }}
         />
+
         <label>Review:</label>
         <input
           type='text'
@@ -65,7 +68,7 @@ function App() {
           }}
         />
 
-        <button onClick={submitReview}>
+        <button class="submit-btn btn" onClick={submitReview}>
           Submit
         </button>
 
@@ -75,7 +78,7 @@ function App() {
               <h1>{val.movieName}</h1>
               <p>{val.movieReview}</p>
 
-              <button onClick={() => { deleteReview(val.movieName) }}>
+              <button class="delete-btn btn" onClick={() => { deleteReview(val.movieName) }}>
                 Delete
               </button>
 
@@ -86,7 +89,7 @@ function App() {
                   setNewReview(e.target.value)
                 }} />
         
-              <button onClick={() => { updateReview(val.movieName) }}>
+              <button class="update-btn btn" onClick={() => { updateReview(val.movieName) }}>
                 Update
               </button>
             </div>
